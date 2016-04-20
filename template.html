@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    
+   <style>
+        #rs table{
+            border: 3px solid green; 
+            width: 300px;
+            border-collapse: collapse;
+        }
+       #rs td{
+           border: 1px solid gray;   
+       }
+    </style>   
+      
+     
+          
+  </head>
+  <body>
+     <button id="testBtn">test</button> 
+    <div id="rs">
+          
+    </div>
+   
+    <script src="js/jquery-1.12.0.min.js"></script>
+    
+      <script>
+       
+        var s={uname:"john",age:100};
+         
+       $("#testBtn").on("click",function(){
+            $.ajax("test3",{data:s,type:"POST",success:function(d){
+            		var table=$("<table>");
+                var tr=$("<tr>");
+                tr.append($("<td>").text(d.id));
+                tr.append($("<td>").text(d.uname));
+                tr.append($("<td>").text(d.xh));
+                table.append(tr);
+                
+                
+                $("#rs").append(table);
+            }
+            });
+          
+           
+       });
+       
+       
+      </script>
+  </body>
+</html>
+
