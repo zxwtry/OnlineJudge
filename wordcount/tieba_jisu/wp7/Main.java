@@ -61,6 +61,9 @@ public class Main {
     }
     private static void solveOneLine(String line) {
         line = line.toLowerCase();
+        int index = line.indexOf("楼");
+        if (-1 != index)
+            line = line.substring(index);
         for (String name : brandAlias) {
             if (line.indexOf(name) != -1) {
                 brandMap.get(name).add();
