@@ -1,0 +1,50 @@
+body {
+	text-align: center;
+	background-image: url("http://wx2.sinaimg.cn/large/006sCaoEly1fd09w1w23jj31kw0zbdgq.jpg");
+}
+
+div.wholePage {
+	width: 800;
+	height: 600;
+	positon:relative;
+}
+
+p.white1Consolas16 {
+	color: white;
+	font: Con; 
+	font-stretch: condensed;s
+	/*
+	font: Consolas;
+	
+	font-style: Consolas; 
+	*/
+	font-size: 16;
+}
+
+div.leftAlign {
+	text-align:left;
+	margin:0 auto; 
+	width:500px; 
+	height:600px; 
+	/*border:1px solid #F00*/
+}
+
+p.leftNowP {
+	text-align:left;
+	width: inherit;
+}
+
+div.inputZone {
+	width: inherit;
+	height:500px;
+}
+div.submit {
+	text-align: right;
+	margin:0 auto; 
+	width: inherit;
+	height: 20px;
+}
+
+div.problemDetail {
+	text-align: center;
+}
