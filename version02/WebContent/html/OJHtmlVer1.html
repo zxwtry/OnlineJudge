@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>POJ Problem Detail</title>
+	<link rel="stylesheet" href="css/OJHtmlVer1.css" type="text/css">
+	<script src="js/jquery.min.js"></script>
+	<script>
+		function callServer() {
+			var langSelectIdValue = document.getElementById("langSelectId").value;
+			var sourceValue = document.getElementById("sourceId").value;
+			var pidValue = document.getElementById("problemId").value;
+			document.getElementById("resultId").innerHTML="status: judging";
+			$.post("/MyOJ02/Judge",
+				{
+					langSelectId:langSelectIdValue,
+					source:sourceValue,
+					problemId:pidValue
+				},
+				function(data,status){
+					if (status == "success") {
+						document.getElementById("resultId").innerHTML="result: " + data;
+					} else {
+						document.getElementById("resultId").innerHTML="connection: " + status;
+					}
+				}
+			);
+		}
+	</script>
+</head>
+<body>
+	<div class="wholePage">
+		<div class="problemDetail">
+			<h1>Problem Details:</h1><br/>
+			%s
+		</div>
+		<br/><br/>
+		<form name="submit_form1" id="submit_form1" >
+			<div class="leftAlign" style="margin-bottom:12px;">
+					<select name="lang" tabindex="-1" id="langSelectId" >
+						<option value="0">Java</option>
+						<option value="1">C</option>
+						<option value="2">C++</option>
+						<option value="3">Python2</option>
+						<option value="4">Python3</option>
+					</select>
+					<br/>
+					<textarea rows="30" name="source" id="sourceId" cols="79"></textarea>
+					<div class="submitCSS">
+						<input type="hidden" id="problemId" value="%s">
+						<input type="button" onclick="callServer()" value="ajax"/>
+					</div>
+					<p id="resultId">result: </p>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
